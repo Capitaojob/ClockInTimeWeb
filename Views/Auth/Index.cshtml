@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    ViewData["StyleSheet"] = "login.css";
+}
+
+<div class="login__container">
+    <h1>Bem-vindo de volta!</h1>
+    <h2 class="text-muted">Faça login para acessar a plataforma</h2>
+    <form method="post">
+        <input type="email" id="email" name="email" placeholder="Email" />
+        <input type="password" id="password" name="password" placeholder="Senha" />
+        <button type="submit">Login</button>
+    </form>
+    <span>Não possui login? <a href="/">Cadastre-se</a></span>
+</div>
