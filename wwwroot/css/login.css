@@ -30,17 +30,6 @@
   border-radius: 10px;
 }
 
-.login__container form button {
-  transition: all 200ms ease;
-  background: var(--blue);
-  color: var(--white);
-}
-
-.login__container form button:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
 @media screen and (max-width: 1000px) {
   .login__container {
     max-width: 500px;

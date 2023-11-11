@@ -11,8 +11,13 @@ namespace ClockInTimeWeb.Controllers
             return View();
         }
 
-        // GET: Auth/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+            // GET: Auth/Details/5
+            public ActionResult Details(int id)
         {
             return View();
         }

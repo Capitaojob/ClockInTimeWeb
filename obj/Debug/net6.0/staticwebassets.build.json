@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NHrshhiR9Il1TBgU6ioWNeOas/wgK7rBKDDrPIEdDTc=",
+  "Hash": "RUTIzk3kA8E9cx90rVGsaxYtDNTg/tLwqWry6u4Q4Gw=",
   "Source": "ClockInTimeWeb",
   "BasePath": "_content/ClockInTimeWeb",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\profile.css",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "css/profile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\profile.css"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\site.css",

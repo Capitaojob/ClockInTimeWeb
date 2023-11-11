@@ -1,0 +1,68 @@
+﻿.profile__page {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    margin-inline: auto;
+    min-height: 400px;
+    padding: 20px;
+}
+
+.profile__page h2 {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.profile__page .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .profile__page .container div {
+        width: 100%;
+        display: block;
+    }
+
+.profile__page .container input,
+.profile__page button {
+    min-width: 100px;
+    width: 40%;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.profile__page button {
+    transition: all 200ms ease;
+    background: var(--blue);
+    color: var(--white);
+}
+
+.profile__page button:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+@media screen and (max-width: 1000px) {
+  .login__container {
+    max-width: 500px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .login__container {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .login__container form input,
+  .login__container form button {
+    min-width: 0;
+  }
+}

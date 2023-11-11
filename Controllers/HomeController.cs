@@ -18,6 +18,16 @@ namespace ClockInTimeWeb.Controllers
             return View();
         }
 
+        public IActionResult ClockIn()
+        {
+            return View();
+        }
+
+        public IActionResult UserProfile()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Perfil";
+    ViewData["StyleSheet"] = "profile.css";
+}
+
+<div class="profile__page">
+    <h1>Meu Perfil</h1>
+    <h2 class="text-muted">Suas informações</h2>
+    <form class="container" method="post">
+        <div>
+            <input type="text" disabled id="nome" name="nome" placeholder="Nome" required />
+            <input type="number" disabled id="cpf" placeholder="CPF" name="cpf" required />
+        </div>
+        <div>
+            <input type="number" maxlength="11" id="telefone" placeholder="Telefone" name="telefone" required />
+            <input type="text" id="estado" placeholder="Estado" name="estado" required />
+        </div>
+        <div>
+            <input type="text" id="cidade" placeholder="Cidade" name="cidade" required />
+            <input type="text" id="endereco" placeholder="Endereço" name="endereco" required />
+        </div>
+        <div>
+            <input type="number" id="numerocasa" placeholder="Nº" name="numerocasa" required />
+            <input type="text" id="funcao" placeholder="Função na Empresa" name="funcao" required />
+        </div>
+        <div>
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <input type="password" id="senha" name="senha" placeholder="Senha" required />
+        </div>
+        <button type="submit">Alterar Dados</button>
+    </form>
+</div>
