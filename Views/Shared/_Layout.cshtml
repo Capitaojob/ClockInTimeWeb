@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,35 +13,87 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid flex align-content-center justify-content-around">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ClockInTime</a>
+                @if (!Context.Request.Path.StartsWithSegments("/Auth"))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ClockInTime</a>
+                }
+                @if (Context.Request.Path.StartsWithSegments("/Auth"))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Index">ClockInTime</a>
+                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserProfile">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ClockIn">Bater Ponto</a>
-                        </li>
+                    <ul class="navbar-nav flex-grow-1">        
+                        @if (!Context.Request.Path.StartsWithSegments("/Auth"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ClockIn">Bater Ponto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Report">Relatório</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gestão de Funcionários</a>
+                            </li>
+                        }
                     </ul>
                 </div>
+                @if (!Context.Request.Path.StartsWithSegments("/Auth"))
+                {
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserProfile">
+                        <img src="/images/profile.png" class="profile" alt="Perfil" title="Perfil" />
+                    </a>
+                    <button type="button" onclick="location.href='/Auth'" class="btn btn-secondary">Sair</button>
+                </div>
+                }
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3 d-flex h-100 justify-content-center align-content-center">
+        <main role="main" class="pb-3 d-flex flex-column h-100 position-relative justify-content-center align-content-center">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top text-muted mt-5">
         <div class="container">
-            &copy; 2023 - ClockInTimeWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row flex flex-row">
+                <!-- Bloco 1 -->
+                <div class="col-md-4">
+                    <h5>Termos e Privacidade</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" asp-area="" asp-controller="Legal" asp-action="Privacy">Privacidade</a></li>
+                        <li><a class="text-muted" asp-area="" asp-controller="Legal" asp-action="Terms">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+
+                <!-- Bloco 2 -->
+                <div class="col-md-4">
+                    <h5>Redes Sociais</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://facebook.com">Facebook</a></li>
+                        <li><a class="text-muted" href="https://x.com">Twitter</a></li>
+                        <li><a class="text-muted" href="https://instagram.com">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-- Bloco 3 -->
+                <div class="col-md-4">
+                    <h5>Contato</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="mailto:joaopedroangottibataglia@gmail.com">Email</a></li>
+                        <li><a class="text-muted" href="https://wa.me/5516993572303">Whatsapp</a></li>
+                        <li><a class="text-muted" href="https://wa.me/5516993572303">Telefone: +55 16 99357-2303</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

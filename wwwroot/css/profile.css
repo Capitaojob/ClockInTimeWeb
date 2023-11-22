@@ -23,10 +23,10 @@
     align-items: center;
 }
 
-    .profile__page .container div {
-        width: 100%;
-        display: block;
-    }
+.profile__page .container div {
+    width: 100%;
+    display: block;
+}
 
 .profile__page .container input,
 .profile__page button {

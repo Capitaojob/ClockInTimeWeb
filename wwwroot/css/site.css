@@ -6,9 +6,11 @@
 
 :root {
     --white: #f5f5f5;
+    --gray: #757575;
+    --dark-gray: #333;
     --black: #111;
     --blue: #213078;
-    --gold: #f6ca3d;
+    --gold: #e8ba25;
 }
 
 html {
@@ -27,14 +29,31 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  min-height: 90vh;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    flex: 1;
+}
+
+.profile {
+    width: 30px;
+    border-radius: 5px;
+    box-sizing: content-box;
+    transition: 100ms ease all;
+}
+
+.profile:hover {
+    background-color: rgba(0,0,0,0.2);
 }
 
 button {
     min-width: 200px;
-    width: 80%;
-    margin-bottom: 20px;
     padding: 10px 20px;
     border-radius: 10px;
     transition: all 200ms ease;
@@ -45,4 +64,28 @@ button {
 button:hover {
     background: var(--gold);
     color: var(--black);
+}
+
+footer {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+}
+
+footer .row div:nth-child(2) {
+    border-left: 1px solid var(--gray);
+    border-right: 1px solid var(--gray);
+}
+
+footer h5,
+footer li,
+footer a {
+    color: var(--blue) !important;
+}
+
+footer .row div {
+    flex: 1;
 }

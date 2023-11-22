@@ -1,8 +1,39 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Início";
+    ViewData["StyleSheet"] = "home.css";
+
+    String currentTimeGreeting()
+    {
+        var currentDate = DateTime.Now;
+        int currentHour = currentDate.TimeOfDay.Hours;
+
+        return (currentHour > 17 || currentHour < 6) ? "Boa-Noite" : (currentHour < 12 ? "Bom-Dia" : "Boa-Tarde");
+    }
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-main">
+    @{
+        var greeting = currentTimeGreeting();
+    }
+    <div class="text-center">
+        <h1 class="display-4">Olá nome, @greeting</h1>
+        <h4>Bem-vindo ao Clock In Time, o seu aplicativo de controle de pontos e horários.</h4>
+    </div>
+
+    <section class="home-functionalities">
+        <div class="left-flex">
+            <h2>Funcionalidades</h2>
+            <a href="/Home/ClockIn" class="btn button-primary">Bater Ponto</a>
+            <a href="/Home/Report" class="btn button-secondary">Ver Holerite</a>
+        </div>
+
+        <div class="right-flex">
+            <h2>Explore o Sistema</h2>
+            <div>
+                <a class="btn button-secondary">Registro de ponto fácil e rápido</a>
+                <a class="btn button-secondary">Visualização intuitiva de horas trabalhadas por período</a>
+                <a class="btn button-secondary">Relatórios personalizados para uma gestão eficaz</a>
+            </div>
+        </div>
+    </section>
+</section>

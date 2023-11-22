@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ClockInTimeWeb.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -13,12 +17,20 @@
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\profile.png",
+      "PackagePath": "staticwebassets\\images\\profile.png"
     },
     {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\site.js",

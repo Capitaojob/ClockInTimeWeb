@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ClockInTimeWeb.Data.Funcionario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Funcionários</h1>
+<h4>Aqui, você pode visualizar, editar e registrar novos funcionários!</h4>
+<p>
+    <a asp-action="Create">Registrar Funcionário</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Nome.Replace('Æ', 'ã')
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @item.Nascimento.ToString("dd/M/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" class="text-decoration-none" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" class="text-decoration-none" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" class="text-danger text-decoration-none" asp-route-id="@item.Id">INATIVAR</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

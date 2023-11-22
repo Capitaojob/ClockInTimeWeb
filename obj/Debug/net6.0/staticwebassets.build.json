@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RUTIzk3kA8E9cx90rVGsaxYtDNTg/tLwqWry6u4Q4Gw=",
+  "Hash": "aVzBpy6sflQ1XB1Zf71X7amrCCAnAI6Cz2E9Xn/yQLo=",
   "Source": "ClockInTimeWeb",
   "BasePath": "_content/ClockInTimeWeb",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ClockInTimeWeb.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\home.css",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "css/home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\home.css"
+    },
+    {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\login.css",
       "SourceId": "ClockInTimeWeb",
       "SourceType": "Discovered",
@@ -85,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\css\\profile.css"
     },
     {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\register.css",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "css/register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\register.css"
+    },
+    {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\site.css",
       "SourceId": "ClockInTimeWeb",
       "SourceType": "Discovered",
@@ -117,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\profile.png",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "images/profile.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile.png"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\site.js",

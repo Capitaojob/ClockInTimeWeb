@@ -1,4 +1,5 @@
 ﻿using ClockInTimeWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -22,13 +23,17 @@ namespace ClockInTimeWeb.Controllers
         {
             return View();
         }
-
-        public IActionResult UserProfile()
+        public ActionResult Register()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Report()
+        {
+            return View();
+        }
+
+        public IActionResult UserProfile()
         {
             return View();
         }
