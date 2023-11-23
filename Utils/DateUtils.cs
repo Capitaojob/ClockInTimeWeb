@@ -1,4 +1,6 @@
-﻿namespace ClockInTimeWeb.Utils
+﻿using System;
+
+namespace ClockInTimeWeb.Utils
 {
     public static class DateUtils
     {
@@ -12,6 +14,11 @@
             {
                 throw new ArgumentException("A string de data não está em um formato válido.");
             }
+        }
+
+        public static DateOnly ParseDateTimeToDateOnly(DateTime dateTime)
+        {
+            return DateOnly.FromDateTime(dateTime);
         }
     }
 }

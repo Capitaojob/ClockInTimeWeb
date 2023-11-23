@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aVzBpy6sflQ1XB1Zf71X7amrCCAnAI6Cz2E9Xn/yQLo=",
+  "Hash": "YxVMNib1Z+4AJ2Ld5MaQUE1R27sgmOfoP4+hE1Yd99E=",
   "Source": "ClockInTimeWeb",
   "BasePath": "_content/ClockInTimeWeb",
   "Mode": "Default",
@@ -102,23 +102,6 @@
       "OriginalItemSpec": "wwwroot\\css\\profile.css"
     },
     {
-      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\register.css",
-      "SourceId": "ClockInTimeWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
-      "BasePath": "_content/ClockInTimeWeb",
-      "RelativePath": "css/register.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\register.css"
-    },
-    {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\site.css",
       "SourceId": "ClockInTimeWeb",
       "SourceType": "Discovered",
@@ -168,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\profile.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\Clockin.js",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "js/Clockin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Clockin.js"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\site.js",

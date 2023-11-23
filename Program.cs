@@ -1,13 +1,15 @@
 using ClockInTimeWeb.Data;
 using Microsoft.EntityFrameworkCore;
 
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Database Connection
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTIONSTRING");
 builder.Services.AddDbContext<CitContext>(options =>
     options.UseNpgsql(connectionString));
 

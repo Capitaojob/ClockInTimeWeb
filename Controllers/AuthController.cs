@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ClockInTimeWeb.Utils;
+using ClockInTimeWeb.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClockInTimeWeb.Controllers
 {
@@ -13,20 +13,26 @@ namespace ClockInTimeWeb.Controllers
             return View();
         }
 
-
         // POST: Auth
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(string email, string password)
+        public async Task<IActionResult> Index(string email, string password)
         {
             if (Authentication.ValidateUser(email, password))
             {
-                // Autenticação bem-sucedida, redirecione ou faça algo mais
+                CitContext context;
+                context = new CitContext();
+                var funcionarioId = await context.Funcionarios
+                    .Where(f => f.Email == email)
+                    .Select(f => f.Id)
+                    .FirstOrDefaultAsync();
+                
+                ViewBag.Id = funcionarioId;
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                // Autenticação falhou, retorne uma mensagem de erro ou redirecione para uma página de erro
                 ViewBag.ErrorMessage = "Credenciais inválidas. Tente novamente.";
                 return View();
             }

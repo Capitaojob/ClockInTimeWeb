@@ -47,8 +47,6 @@ namespace ClockInTimeWeb.Controllers
         }
 
         // POST: Funcionarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id, Nascimento, Cargo, Status, Senha, Nome, Email, Cpf")] Funcionario funcionario)
@@ -83,8 +81,6 @@ namespace ClockInTimeWeb.Controllers
         }
 
         // POST: Funcionarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nascimento,Cargo,Status,Senha,Nome,Email,Cpf")] Funcionario funcionario)
@@ -98,19 +94,15 @@ namespace ClockInTimeWeb.Controllers
             {
                 try
                 {
-                    // Formata o nascimento para o tipo do banco de dados
                     funcionario.Nascimento = DateUtils.ParseStringToDateOnly(Request.Form["Nascimento"]);
 
-                    // Verificar se a senha recebida está vazia
                     if (string.IsNullOrWhiteSpace(funcionario.Senha))
                     {
-                        // Carregar a senha atual do funcionário do banco de dados
                         var currentPassword = await _context.Funcionarios
                             .Where(f => f.Id == funcionario.Id)
                             .Select(f => f.Senha)
                             .FirstOrDefaultAsync();
 
-                        // Atribuir a senha atual de volta ao modelo
                         funcionario.Senha = currentPassword;
                     } 
                     else
@@ -167,7 +159,8 @@ namespace ClockInTimeWeb.Controllers
             var funcionario = await _context.Funcionarios.FindAsync(id);
             if (funcionario != null)
             {
-                _context.Funcionarios.Remove(funcionario);
+                funcionario.Status = 0;
+                _context.Funcionarios.Update(funcionario);
             }
             
             await _context.SaveChangesAsync();
