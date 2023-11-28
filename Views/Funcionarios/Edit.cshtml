@@ -6,42 +6,36 @@
 
 <h1>Editar Funcionário</h1>
 
-<h4>Editando O Funcionário @Model.Nome</h4>
+<h4>Editando o Funcionário @Model.Nome</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" class="edit__employee">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
+                <input asp-for="Nome" class="form-control" placeholder="Enzo Silva" pattern="^[a-zA-ZÀ-ÿ\s']+$" title="Informe um nome válido" required />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control" placeholder="nome@email.com" title="Informe um e-mail válido" required />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
+                <input asp-for="Cpf" class="form-control" placeholder="11122233345" pattern="^\d{11}$" title="Informe um CPF válido no formato XXXXXXXXXXX" required />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Nascimento" class="control-label"></label>
-                <input asp-for="Nascimento" class="form-control" />
+                <input asp-for="Nascimento" class="form-control" type="text" placeholder="01/01/2000" pattern="^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$" title="Informe uma data válida no formato dd/mm/yyyy" required />
                 <span asp-validation-for="Nascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cargo" class="control-label"></label>
-                <input asp-for="Cargo" class="form-control" />
+                <input asp-for="Cargo" class="form-control" pattern="^[a-zA-Z\s]+$" title="Informe um cargo válido" required />
                 <span asp-validation-for="Cargo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Senha" class="control-label"></label>
@@ -49,7 +43,7 @@
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" disabled />
             </div>
         </form>
     </div>
@@ -59,3 +53,17 @@
     <a asp-action="Index">Voltar à Listagem</a>
 </div>
 
+<script>
+    const applicationForm = document.querySelector(".edit__employee");
+
+    applicationForm.addEventListener("change", () => {
+        if (!applicationForm.checkValidity()) {
+            applicationForm.reportValidity();
+            console.log("Inválido")
+            applicationForm.querySelector("input.btn").disabled = true
+            return
+        }
+        applicationForm.querySelector("input.btn").disabled = false
+    })
+
+</script>

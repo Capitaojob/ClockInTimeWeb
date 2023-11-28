@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ClockInTime</title>
-    <link rel="stylesheet" href="~/css/@ViewData["Stylesheet"]" />
+    @if (ViewData["Stylesheet"] != null)
+    {
+        <link rel="stylesheet" href="~/css/@ViewData["Stylesheet"]" />
+    }
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClockInTimeWeb.styles.css" asp-append-version="true" />
@@ -26,7 +29,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">        
+                    <ul class="navbar-nav flex-grow-1" id="navbar-link-itens">
                         @if (!Context.Request.Path.StartsWithSegments("/Auth"))
                         {
                             <li class="nav-item">
@@ -35,19 +38,16 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Report">Relatório</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Gestão de Funcionários</a>
-                            </li>
                         }
                     </ul>
                 </div>
                 @if (!Context.Request.Path.StartsWithSegments("/Auth"))
                 {
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserProfile">
-                        <img src="/images/profile.png" class="profile" alt="Perfil" title="Perfil" />
-                    </a>
-                    <button type="button" onclick="location.href='/Auth'" class="btn btn-secondary">Sair</button>
+                     @* <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserProfile">
+                         <img src="/images/profile.png" class="profile" alt="Perfil" title="Perfil" />
+                     </a> *@
+                    <button type="button" class="btn btn-logout btn-secondary">Sair</button>
                 </div>
                 }
             </div>

@@ -6,7 +6,51 @@
     <h1>Relatório</h1>
     <h4>Obtenha seus relatórios de pagamento mensais!</h4>
     <form method="post">
-        <input type="date" />
-        <button type="submit">Gerar Relatório</button>
+        <input type="month" id="month__date" />
+        <button type="submit" id="generate__report">Gerar Relatório</button>
     </form>
 </div>
+
+<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="~/js/PDFUtils.js"></script>
+<script>
+    async function gerarPDF() {
+        try {
+            const monthDate = document.getElementById("month__date").value
+            const response = await fetch(`/Home/GetReportDataForUser?idFuncionario=${sessionStorage.getItem("userId")}&month=${monthDate.split('-')[1]}&year=${monthDate.split('-')[0]}`);
+            
+            if (!response.ok) {
+               throw new Error(`Erro na solicitação: ${response.statusText}`);
+            }
+            
+            const data = await response.json()
+
+            console.log(data);
+
+            data = {
+                nome: "Joao",
+                salario: 1000
+            }
+            const doc = new jsPDF();
+
+            // Adiciona os dados ao PDF
+            doc.text(`Relatório de Dados`, 10, 10);
+            doc.text(`Nome: ${data.nome}`, 10, 20);
+            doc.text(`Salário: ${data.salario}`, 10, 30);
+
+            // Salva ou exibe o PDF
+            // doc.save('relatorio.pdf');
+        } catch (error) {
+            console.error('Erro ao gerar o PDF:', error);
+        }
+    }
+
+    document.querySelector("#generate__report").addEventListener("click", async (e) => {
+        e.preventDefault();
+        Promise.resolve(gerarPDF());
+        //Promise.resolve(downloadPDF())
+        //.then(location.href = '/Home/Report');
+    })
+
+</script>

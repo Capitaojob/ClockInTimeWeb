@@ -18,6 +18,4 @@ public partial class Ponto
     public DateTime? EntradaAl { get; set; }
 
     public DateTime? Saida { get; set; }
-
-    public virtual Funcionario IdFuncionarioNavigation { get; set; } = null!;
 }

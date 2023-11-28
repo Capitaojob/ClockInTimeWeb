@@ -1,5 +1,8 @@
-﻿@{
+﻿@model List<ClockInTimeWeb.Data.Ponto>
+
+@{
     ViewData["Title"] = "Bater Ponto";
+    ViewData["StyleSheet"] = "clockin.css";
 }
 
 <div>
@@ -8,6 +11,7 @@
     <form method="post">
         <button type="submit" id="btn-clockin">Bater Ponto</button>
     </form>
+    <div id="clockin__registers"></div>
 </div>
 
 <script src="~/js/Clockin.js"></script>

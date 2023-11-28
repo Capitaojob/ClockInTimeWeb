@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ClockInTimeWeb.Data.Ponto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFuncionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaidaAl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntradaAl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFuncionario)
+            </td>
+            <td>
+                @item.Data.ToString("dd/M/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaidaAl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntradaAl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Saida)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPonto">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPonto">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPonto">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

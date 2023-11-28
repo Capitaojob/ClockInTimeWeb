@@ -34,8 +34,7 @@ public partial class CitContext : DbContext
     public virtual DbSet<Time> Times { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("User ID=postgres;Password=dbadmin;Host=localhost;Port=5432;Database=cit;");
+        => optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTIONSTRING"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -64,10 +63,11 @@ public partial class CitContext : DbContext
             entity.ToTable("cargo");
 
             entity.Property(e => e.IdCargo).HasColumnName("id_cargo");
+            entity.Property(e => e.Administrador).HasColumnName("administrador");
             entity.Property(e => e.CargaHoraria).HasColumnName("carga_horaria");
-            entity.Property(e => e.Dp)
+            entity.Property(e => e.Departamento)
                 .HasMaxLength(1)
-                .HasColumnName("dp");
+                .HasColumnName("departamento");
             entity.Property(e => e.NomeCargo)
                 .HasMaxLength(150)
                 .HasColumnName("nome_cargo");
@@ -157,9 +157,7 @@ public partial class CitContext : DbContext
             entity.Property(e => e.Senha)
                 .HasMaxLength(150)
                 .HasColumnName("senha");
-            entity.Property(e => e.Status)
-                .HasMaxLength(1)
-                .HasColumnName("status");
+            entity.Property(e => e.Status).HasColumnName("status");
         });
 
         modelBuilder.Entity<Imposto>(entity =>
@@ -193,11 +191,6 @@ public partial class CitContext : DbContext
             entity.Property(e => e.SaidaAl)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("saida_al");
-
-            entity.HasOne(d => d.IdFuncionarioNavigation).WithMany(p => p.Pontos)
-                .HasForeignKey(d => d.IdFuncionario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_pontos_funcionario");
         });
 
         modelBuilder.Entity<Telefone>(entity =>

@@ -44,6 +44,10 @@ namespace ClockInTimeWeb.Controllers
         public IActionResult Create()
         {
             return View();
+            #warning volta aqui depois
+            //return _context.Cargos != null ?
+            //    View(await _context.Cargos.ToListAsync()) :
+            //    View("Crie um cargo para iniciar");
         }
 
         // POST: Funcionarios/Create
@@ -54,13 +58,28 @@ namespace ClockInTimeWeb.Controllers
             if (ModelState.IsValid)
             {
                 funcionario.Status = 1;
-                funcionario.Senha = Cryptography.EncryptPassword("tz2wsx@dr5");
+
+                string defaultPassword = Environment.GetEnvironmentVariable("DEFAULT_PASSWORD");
+
+                if (string.IsNullOrEmpty(defaultPassword))
+                {
+                    return Problem("Senha padrão não encontrada");
+                }
+
+                funcionario.Senha = Cryptography.EncryptPassword(Environment.GetEnvironmentVariable("DEFAULT_PASSWORD"));
+
+                if(string.IsNullOrEmpty(Request.Form["Nascimento"]))
+                {
+                    return Problem("Formulário não enviou a data de nascimento corretamente");
+                }
+
                 funcionario.Nascimento = DateUtils.ParseStringToDateOnly(Request.Form["Nascimento"]);
 
                 _context.Add(funcionario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(funcionario);
         }
 

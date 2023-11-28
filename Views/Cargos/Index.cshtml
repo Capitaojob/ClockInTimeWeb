@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ClockInTimeWeb.Data.Cargo>
+
+@{
+    ViewData["Title"] = "Cargos";
+}
+
+<h1>Cargos</h1>
+<h4>Aqui, você pode visualizar, editar e criar novos cargos para funcionários!</h4>
+
+<p>
+    <a asp-action="Create">Criar Cargo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nome do Cargo
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Carga Horária
+            </th>
+            <th>
+                Salário
+            </th>
+            <th>
+                Administrador
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargaHoraria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Administrador)
+            </td>
+            <td>
+                <a asp-action="Edit" class="text-decoration-none" asp-route-id="@item.IdCargo">Editar</a> |
+                <a asp-action="Details" class="text-decoration-none" asp-route-id="@item.IdCargo">Detalhes</a> |
+                <a asp-action="Delete" class="text-danger text-decoration-none" asp-route-id="@item.IdCargo">DELETAR</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

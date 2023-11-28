@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YxVMNib1Z+4AJ2Ld5MaQUE1R27sgmOfoP4+hE1Yd99E=",
+  "Hash": "3WuAAHiiwJyaaYCmJ2TO3L5ywGBErD7scEEcsrQoNZ8=",
   "Source": "ClockInTimeWeb",
   "BasePath": "_content/ClockInTimeWeb",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ClockInTimeWeb.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\clockin.css",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "css/clockin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\clockin.css"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\css\\home.css",
@@ -136,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\logo.png",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\profile.png",
       "SourceId": "ClockInTimeWeb",
       "SourceType": "Discovered",
@@ -168,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Clockin.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\PDFUtils.js",
+      "SourceId": "ClockInTimeWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\",
+      "BasePath": "_content/ClockInTimeWeb",
+      "RelativePath": "js/PDFUtils.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\PDFUtils.js"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\site.js",

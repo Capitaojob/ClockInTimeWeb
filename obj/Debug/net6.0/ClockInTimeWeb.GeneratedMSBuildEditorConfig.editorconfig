@@ -20,6 +20,26 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Cargos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Cargos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Cargos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Cargos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Cargos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Funcionarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,6 +82,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Legal/Terms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVnYWxcVGVybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Pontos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9udG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Pontos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9udG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Pontos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9udG9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Pontos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9udG9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Pontos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9udG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/source/repos/ClockInTimeWeb/ClockInTimeWeb/Views/Shared/Error.cshtml]

@@ -2,6 +2,7 @@
 using ClockInTimeWeb.Utils;
 using ClockInTimeWeb.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace ClockInTimeWeb.Controllers
 {
@@ -13,29 +14,38 @@ namespace ClockInTimeWeb.Controllers
             return View();
         }
 
-        // POST: Auth
+        // POST: /Auth/ValidateUser
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(string email, string password)
+        public async Task<IActionResult> ValidateUser([FromBody] UserCredentials credentials)
         {
-            if (Authentication.ValidateUser(email, password))
+            try
             {
-                CitContext context;
-                context = new CitContext();
-                var funcionarioId = await context.Funcionarios
-                    .Where(f => f.Email == email)
-                    .Select(f => f.Id)
-                    .FirstOrDefaultAsync();
+                if (Authentication.ValidateUser(credentials.Email, credentials.Password))
+                {
+                    CitContext context;
+                    context = new CitContext();
+                    var funcionarioId = await context.Funcionarios
+                        .Where(f => f.Email == credentials.Email)
+                        .Select(f => f.Id)
+                        .FirstOrDefaultAsync();
                 
-                ViewBag.Id = funcionarioId;
-
-                return RedirectToAction("Index", "Home");
+                    return Json(new { success = "Autenticado com sucesso", userId = funcionarioId });
+                }
+                else
+                {
+                    throw new Exception("Login ou senha incorretos, tente novamente.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ViewBag.ErrorMessage = "Credenciais inválidas. Tente novamente.";
-                return View();
+                return Json(new { error = ex.Message ?? "Erro na autenticação" });
             }
+        }
+
+        public class UserCredentials
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
         }
     }
 }
