@@ -1,39 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Início";
     ViewData["StyleSheet"] = "home.css";
-
-    String currentTimeGreeting()
-    {
-        var currentDate = DateTime.Now;
-        int currentHour = currentDate.TimeOfDay.Hours;
-
-        return (currentHour > 17 || currentHour < 6) ? "Boa-Noite" : (currentHour < 12 ? "Bom-Dia" : "Boa-Tarde");
-    }
 }
 
 <section class="home-main">
-    @{
-        var greeting = currentTimeGreeting();
-    }
+    <img src="~/images/people_vector.jpg" width="70%" alt="People United" title="People United"/>
+    
     <div class="text-center">
-        <h1 class="display-4">Olá, @greeting</h1>
-        <h4>Bem-vindo ao Clock In Time, o seu aplicativo de controle de pontos e horários.</h4>
+        <h1 class="display-4">Bem-Vindo ao Clock In Time!</h1>
+        <h4>O seu aplicativo de controle de pontos e pagamentos.</h4>
     </div>
 
-    <section class="home-functionalities">
-        <div class="left-flex">
-            <h2>Funcionalidades</h2>
-            <a href="/Home/ClockIn" class="btn button-primary">Bater Ponto</a>
-            <a href="/Home/Report" class="btn button-secondary">Ver Holerite</a>
-        </div>
 
-        <div class="right-flex">
-            <h2>Explore o Sistema</h2>
-            <div>
-                <a class="btn button-secondary">Registro de ponto fácil e rápido</a>
-                <a class="btn button-secondary">Visualização intuitiva de horas trabalhadas por período</a>
-                <a class="btn button-secondary">Relatórios personalizados para uma gestão eficaz</a>
-            </div>
-        </div>
+    <section class="home-functionalities">
+        <a href="/Home/ClockIn" class="btn button-primary">Bater Ponto</a>
+        <a href="/Home/Report" class="btn button-secondary">Ver Holerite</a>
     </section>
 </section>

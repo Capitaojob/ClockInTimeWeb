@@ -59,7 +59,6 @@
     applicationForm.addEventListener("change", () => {
         if (!applicationForm.checkValidity()) {
             applicationForm.reportValidity();
-            console.log("Inválido")
             applicationForm.querySelector("input.btn").disabled = true
             return
         }

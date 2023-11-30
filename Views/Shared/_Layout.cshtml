@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClockInTimeWeb.styles.css" asp-append-version="true" />
+    <script src="~/js/AuthValidation.js"></script>
 </head>
 <body>
     <header>
@@ -33,7 +34,7 @@
                         @if (!Context.Request.Path.StartsWithSegments("/Auth"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ClockIn">Bater Ponto</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ClockIn">Pontos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Report">Relatório</a>
@@ -44,9 +45,6 @@
                 @if (!Context.Request.Path.StartsWithSegments("/Auth"))
                 {
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
-                     @* <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UserProfile">
-                         <img src="/images/profile.png" class="profile" alt="Perfil" title="Perfil" />
-                     </a> *@
                     <button type="button" class="btn btn-logout btn-secondary">Sair</button>
                 </div>
                 }
@@ -61,7 +59,7 @@
 
     <footer class="border-top text-muted mt-5">
         <div class="container">
-            <div class="row flex flex-row">
+            <div class="row flex ">
                 <!-- Bloco 1 -->
                 <div class="col-md-4">
                     <h5>Termos e Privacidade</h5>

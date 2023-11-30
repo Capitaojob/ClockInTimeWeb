@@ -27,7 +27,7 @@ async function checkUserAdministrator() {
     const funcionariosNavLink = document.createElement("a");
     funcionariosNavLink.className = "nav-link text-dark";
     funcionariosNavLink.setAttribute("href", "/Funcionarios/Index");
-    funcionariosNavLink.textContent = "Gestão de Funcionários";
+    funcionariosNavLink.textContent = "Funcionários";
 
     funcionariosNavItem.appendChild(funcionariosNavLink);
     managementItems.appendChild(funcionariosNavItem);
@@ -38,7 +38,7 @@ async function checkUserAdministrator() {
     const cargosNavLink = document.createElement("a");
     cargosNavLink.className = "nav-link text-dark";
     cargosNavLink.setAttribute("href", "/Cargos/Index");
-    cargosNavLink.textContent = "Gestão de Cargos";
+    cargosNavLink.textContent = "Cargos";
 
     cargosNavItem.appendChild(cargosNavLink);
     managementItems.appendChild(cargosNavItem);

@@ -1,6 +1,7 @@
 ﻿using ClockInTimeWeb.Data;
 using ClockInTimeWeb.Models;
 using ClockInTimeWeb.Utils;
+using iText.StyledXmlParser.Jsoup.Nodes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -37,9 +38,37 @@ namespace ClockInTimeWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> GetReportDataForUser(int idFuncionario, int month, int year)
         {
+            var funcionario = await _context.Funcionarios.FindAsync(idFuncionario);
+
+            if (funcionario == null)
+            {
+                return NotFound();
+            }
+
+            var cargo = await _context.Cargos
+                .FirstOrDefaultAsync(c => c.IdCargo == funcionario.Cargo); 
+
+            if (cargo == null)
+            {
+                return NotFound();
+            }
+
             var workedHours = PayrollUtils.GetWorkedHoursForUser(idFuncionario, month, year);
 
-            return Json(new { workedHours });
+            string endereco = funcionario.Endereco != null ? funcionario.Endereco.ToString() : "Não Informado";
+            string telefone = funcionario.Telefone != null ? funcionario.Telefone.ToString() : "Não Informado";
+
+            return Json(new 
+                { 
+                    nome = funcionario.Nome, 
+                    email = funcionario.Email,
+                    endereco,
+                    telefone,
+                    horasTotaisBase = cargo.CargaHoraria, 
+                    horasTotaisTrabalhadas = workedHours, 
+                    salarioBruto = cargo.Salario 
+                }
+            );
         }
 
         public IActionResult UserProfile()

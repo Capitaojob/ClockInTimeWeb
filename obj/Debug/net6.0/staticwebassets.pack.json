@@ -33,8 +33,16 @@
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\people_vector.jpg",
+      "PackagePath": "staticwebassets\\images\\people_vector.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\images\\profile.png",
       "PackagePath": "staticwebassets\\images\\profile.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\AuthValidation.js",
+      "PackagePath": "staticwebassets\\js\\AuthValidation.js"
     },
     {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\Clockin.js",
@@ -43,6 +51,22 @@
     {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\PDFUtils.js",
       "PackagePath": "staticwebassets\\js\\PDFUtils.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\StringUtils.js",
+      "PackagePath": "staticwebassets\\js\\StringUtils.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\TaxesUtils.js",
+      "PackagePath": "staticwebassets\\js\\TaxesUtils.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\jspdf.1.5.3.js",
+      "PackagePath": "staticwebassets\\js\\jspdf.1.5.3.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\jspdf.plugin.autotable.js",
+      "PackagePath": "staticwebassets\\js\\jspdf.plugin.autotable.js"
     },
     {
       "Id": "C:\\Users\\User\\source\\repos\\ClockInTimeWeb\\ClockInTimeWeb\\wwwroot\\js\\site.js",

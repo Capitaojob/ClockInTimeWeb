@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ClockInTimeWeb.Data;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ClockInTimeWeb.Controllers
 {
@@ -47,8 +46,6 @@ namespace ClockInTimeWeb.Controllers
         }
 
         // POST: Cargos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdCargo,Salario,Departamento,CargaHoraria,NomeCargo,Administrador")] Cargo cargo)

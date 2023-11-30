@@ -89,3 +89,21 @@ footer a {
 footer .row div {
     flex: 1;
 }
+
+@media screen and (max-width: 575px) {
+    footer .container .row {
+        flex-direction: column;
+    }
+
+    footer .container .row div {
+        padding-top: 10px;
+    }
+
+    footer .row div:nth-child(2) {
+        display: none;
+    }
+
+    .small__screen__hidden {
+        display: none;
+    }
+}

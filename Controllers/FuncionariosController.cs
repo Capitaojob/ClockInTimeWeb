@@ -44,7 +44,6 @@ namespace ClockInTimeWeb.Controllers
         public IActionResult Create()
         {
             return View();
-            #warning volta aqui depois
             //return _context.Cargos != null ?
             //    View(await _context.Cargos.ToListAsync()) :
             //    View("Crie um cargo para iniciar");

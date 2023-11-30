@@ -12,32 +12,16 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    gap: 30px;
 }
 
-.home-functionalities > div {
-    width: 45%;
-    padding: 20px;
-    background-color: var(--blue);
-    border-radius: 20px;
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.home-functionalities .btn {
+    font-size: 1.6em;
+    transition: 200ms ease all;
 }
 
-.left-flex {
-    gap: 20px;
-}
-
-.left-flex .btn {
-    flex: 1;
-    width: 100%;
-    font-size: 1.5em;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home-functionalities .btn:hover {
+    transform: scale(1.1);
 }
 
 .button-primary {
@@ -46,16 +30,16 @@
 }
 
 .button-secondary {
-    background-color: var(--gray) !important;
+    background-color: var(--blue) !important;
     color: var(--white) !important;
 }
 
 .button-primary:hover {
-    background-color: #bd9000 !important;
+    background-color: #ffd100 !important;
 }
 
 .button-secondary:hover {
-    background-color: #505050 !important;
+    background-color: #254e95 !important;
 }
 
 .right-flex div {
@@ -73,13 +57,7 @@
 }
 
 @media screen and (max-width: 575px) {
-    /*  */
     .home-functionalities {
         flex-direction: column;
-    }
-
-    .home-functionalities div {
-        width: 100%;
-        margin-bottom: 20px;
     }
 }

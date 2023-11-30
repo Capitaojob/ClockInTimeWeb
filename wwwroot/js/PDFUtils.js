@@ -1,154 +1,99 @@
-async function downloadPDF() {
+import { getINSS, getIRRF } from './TaxesUtils.js'
+import { normalizeSpecialCharactersOnString } from './StringUtils.js'
+
+async function gerarPDF() {
     try {
-        const response = await fetch(`/Pdf/GetPdf?userId=${sessionStorage.getItem("userId")}`);
+        const monthDate = document.getElementById("month__date").value
+        const response = await fetch(`/Home/GetReportDataForUser?idFuncionario=${sessionStorage.getItem("userId")}&month=${monthDate.split('-')[1]}&year=${monthDate.split('-')[0]}`);
 
         if (!response.ok) {
             throw new Error(`Erro na solicitação: ${response.statusText}`);
         }
 
-        const blob = await response.blob();
+        const data = await response.json(); //nome, horasTotaisTrabalhadas, horasTotaisBase, salarioBruto
 
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
+        const salarioBaseComDescontoDeHoras = (data.horasTotaisTrabalhadas * data.salarioBruto) / data.horasTotaisBase;
+        const descontoHoras = (data.salarioBruto - salarioBaseComDescontoDeHoras).toFixed(2)
 
-        link.download = 'relatorio.pdf';
+        const inssData = getINSS(salarioBaseComDescontoDeHoras); //totalLiquido, desconto, percentual
+        const irrfData = getIRRF(inssData.totalLiquido); //totalLiquido, aliquota, deducao, desconto
 
-        document.body.appendChild(link);
+        const doc = new jsPDF();
+        doc.setFont("times");
+        doc.setFontSize(12);
 
-        link.click();
+        let y = 20;
 
-        document.body.removeChild(link);
+        doc.text("Clock In Time - Relatorio De Pagamento", 10, y);
+        y += 10;
+
+        doc.line(10, 22, 200, 22);
+
+        doc.setFontSize(22);
+        doc.text("Tz Solucoes", 10, y);
+        y += 15;
+
+        doc.setFontSize(12);
+
+        doc.text("Endereco: R. Chile, 967 - Jardim Iraja, Ribeirao Preto - SP", 10, y);
+        y += 10;
+
+        doc.text("Telefone: (16) 99158-9900", 10, y);
+        y += 15;
+
+        // Funcionário
+        doc.setFontSize(22);
+        doc.text(`Funcionario: ${normalizeSpecialCharactersOnString(data.nome)}`, 10, y);
+        doc.setFontSize(12);
+
+        y += 10;
+        doc.text(`E-mail: ${normalizeSpecialCharactersOnString(data.email)}`, 10, y);
+        y += 10;
+        doc.text(`Endereco: ${normalizeSpecialCharactersOnString(data.endereco)}`, 10, y);
+        y += 10;
+        doc.text(`Telefone: ${normalizeSpecialCharactersOnString(data.telefone)}`, 10, y);
+
+        y += 20;
+
+        const columns = ['Descricao', 'Valor Somado', 'Valor Subtraido', 'Valor Total'];
+        const columnWidths = [80, 60, 60, 40];
+
+        const tableData = [
+            ['Salário Bruto', data.salarioBruto.toFixed(2), '0.00', data.salarioBruto],
+            ['Desconto de Horas', '0.00', descontoHoras, descontoHoras],
+            ['INSS', '0.00', inssData.desconto, inssData.desconto],
+            ['IRRF', '0.00', irrfData.desconto, irrfData.desconto],
+            [
+                'Total',
+                data.salarioBruto.toFixed(2),
+                (+descontoHoras + +inssData.desconto + +irrfData.desconto).toFixed(2),
+                (+data.salarioBruto - +descontoHoras - +inssData.desconto - +irrfData.desconto).toFixed(2)
+            ]
+        ];
+
+        // Adiciona o cabeçalho da tabela
+        for (let i = 0; i < columns.length; i++) {
+            doc.text(normalizeSpecialCharactersOnString(columns[i]), 10 + i * 50, y);
+        }
+
+        doc.line(10, y + 2, 200, y + 2);
+
+        // Adiciona as linhas da tabela
+        for (let row of tableData) {
+            y += 10; // Ajusta a posição vertical
+            for (let i = 0; i < row.length; i++) {
+                doc.text(normalizeSpecialCharactersOnString((row[i].toString())), 10 + i * 50, y);
+            }
+        }
+
+        // Salva ou exibe o PDF
+         doc.save('relatorio.pdf');
     } catch (error) {
-        console.error('Erro durante o download do PDF:', error);
+        console.error('Erro ao gerar o PDF:', error);
     }
 }
 
 document.querySelector("#generate__report").addEventListener("click", async (e) => {
     e.preventDefault();
-    //Promise.resolve(downloadPDF())
-        //.then(location.href = '/Home/Report');
+    Promise.resolve(gerarPDF());
 })
-
-//function generatePDF() {
-//    var pdfData = {
-//        nomeFuncionario: "Joao Bataglia",
-//        emailFuncionario: "jpangottibataglia@gmail.com",
-//        data: "2023-11-11"
-//    };
-
-//    var props = {
-//        outputType: jsPDFInvoiceTemplate.OutputType.Save,
-//        returnJsPDFDocObject: true,
-//        fileName: `Relatorio ${pdfData.nomeFuncionario} - ${pdfData.data}`,
-//        orientationLandscape: false,
-//        compress: true,
-//        logo: {
-//            src: "../images/logo.png",
-//            type: 'PNG',
-//            height: 26.66,
-//            height: 53.66,
-//            margin: {
-//                top: 0,
-//                left: 0
-//            }
-//        },
-//        stamp: {
-//            inAllPages: true, //by default = false, just in the last page
-//            src: "https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/qr_code.jpg",
-//            type: 'JPG', 
-//            width: 20, //aspect ratio = width/height
-//            height: 20,
-//            margin: {
-//                top: 0, //negative or positive num, from the current position
-//                left: 0 //negative or positive num, from the current position
-//            }
-//        },
-//        business: {
-//            name: "Tz Solucoes",
-//            address: "R. Chile, 967 - Jardim Iraja, Ribeirao Preto - SP, 14020-610",
-//            phone: "(16) 99158-9900",
-//            email: "contato@tzsolucoes.com.br",
-//            website: "www.tzsolucoes.com.br/",
-//        },
-//        contact: {
-//            label: "Relatorio para o funcionario:",
-//            name: pdfData.nomeFuncionario,
-//            email: pdfData.emailFuncionario
-//        },
-//        invoice: {
-//            label: "Relatorio de Pagamento:",
-//            invDate: `Data do Pagamento: 05/11/2023`,
-//            headerBorder: false,
-//            tableBodyBorder: false,
-//            header: [
-//                {
-//                    title: "#",
-//                    style: {
-//                        width: 10
-//                    }
-//                },
-//                {
-//                    title: "Titulo",
-//                    style: {
-//                        width: 30
-//                    }
-//                },
-//                {
-//                    title: "Descricao",
-//                    style: {
-//                        width: 80
-//                    }
-//                },
-//                { title: "Entrada" },
-//                { title: "Saida" },
-//                { title: "Total" }
-//            ],
-//            table: Array.from(Array(5), (item, index) => ([
-//                index + 1,
-//                "Tipo",
-//                "Desc",
-//                400.5,
-//                1.5,
-//                399
-//            ])),
-//            additionalRows: [{
-//                col1: 'Total:',
-//                col2: '145,250.50',
-//                col3: 'ALL',
-//                style: {
-//                    fontSize: 14 //optional, default 12
-//                }
-//            },
-//            {
-//                col1: 'VAT:',
-//                col2: '20',
-//                col3: '%',
-//                style: {
-//                    fontSize: 10 //optional, default 12
-//                }
-//            },
-//            {
-//                col1: 'SubTotal:',
-//                col2: '116,199.90',
-//                col3: 'ALL',
-//                style: {
-//                    fontSize: 10 //optional, default 12
-//                }
-//            }],
-//            //invDescLabel: "Invoice Note",
-//            //invDesc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-//        },
-//        footer: {
-//            text: "The invoice is created on a computer and is valid without the signature and stamp.",
-//        },
-//        pageEnable: true,
-//        pageLabel: "Pagina ",
-//    };
-
-//    var pdfObject = jsPDFInvoiceTemplate.default(props);
-//    console.log("Object Created: ", pdfObject);
-//}
-
-//document.addEventListener("click", () => {
-//    generatePDF();
-//})
